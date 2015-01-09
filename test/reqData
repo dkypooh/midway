@@ -1,9 +1,10 @@
 <json name="get" api="/api/get" method="POST">
 {
-  "name": "midMeet",
+  "na2med": "midMeet",
   "version": "0.0.0",
   "private": true,
   "scriptas": {
     "start": "node ./bin/www"
   }
 }
+</json>

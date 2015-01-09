@@ -21,13 +21,15 @@ var MidMeet = function(obj,cb){
 				resData.push(chunck);
 			});
 			res.on('end',function(){
-				var tr = diff.reserval(jsonSrc,JSON.parse(resData.join()));
-				if(!diff.reserval(jsonSrc,JSON.parse(resData.join()))){
-                    itm.cnt = jsonSrc;
+				jsonTarget = JSON.parse(resData.join());
+				if(!diff.reserval(jsonSrc,jsonTarget)){
                     diff.result.unshift("API:\t  "+itm.api);
                     diff.result.unshift("Name:\t  "+itm.name);
-                    cb(diff.result.join('\n'))
-                    cb(JSON.stringify(itm,null,4));
+                    cb(diff.result.join('\n'));
+                    cb("JSON-Front:");
+                    cb(JSON.stringify(jsonSrc,null,4));
+                    cb("JSON-End:");
+                    cb(JSON.stringify(jsonTarget,null,4));
 				}
 			})
 		});
@@ -38,6 +40,7 @@ var MidMeet = function(obj,cb){
 var run = function(file,host,port){
 	fs.openSync('result', 'w');
 	var writeStream = fs.createWriteStream('result');
+	console.log(file+host+port);
 	mid = new MidMeet({file:file,host:host,port:port},function(str){
 		writeStream.write(str+'\n');
 	});

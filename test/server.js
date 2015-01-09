@@ -30,6 +30,8 @@ var route = {
 
 http.createServer(function(req,res){
     if(route[req.url])res.writeHead(200);
-	res.write(JSON.stringify(route[req.url]));
-	res.end();
-}).listen(4000);
+  	res.write(JSON.stringify(route[req.url]));
+  	res.end();
+}).listen(5000,function(){
+   console.log("server port:5000");
+});
