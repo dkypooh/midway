@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+var fs = require('fs');
+var program = require('commander');
+var mid = require('../mid.js');
+program
+  .version('0.0.1')
+  .option('-i, --in [value]', 'add json file')
+  .option('-l, --host [value]','add http localhost')
+  .option('-p, --port <n>',"add port",parseInt)
+  .parse(process.argv);
+
+if(program.in&&program.host&&program.port){
+  mid.run(program.in,program.host,program.port)
+}

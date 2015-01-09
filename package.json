@@ -1,0 +1,22 @@
+{
+  "name": "midMeet",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies":{
+    "commander":"2.6.0"
+  },
+  "description":"front-end tools",
+  "bin":{
+    "midway": "./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": ">0.8"
+  },
+  "license": "MIT"
+}
